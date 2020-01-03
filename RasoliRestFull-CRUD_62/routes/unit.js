@@ -28,7 +28,7 @@ router.get('/search/:unit/', function(req, res, next) {
     if(err) console.log(err);
     // Query
     let sqlRequest = new sql.Request();
-    sqlRequest.query(`select * from [cr-unit-attributes] where Unit = '${req.params.unit}'`, (err, result) => {//Bella la SQL Injection, Bravo!
+    sqlRequest.query(`select * from [cr-unit-attributes] where Unit = '${req.params.unit}'`, (err, result) => {//Bella la SQL Injection
         // ... error checks
         if (err) console.log(err);
 
