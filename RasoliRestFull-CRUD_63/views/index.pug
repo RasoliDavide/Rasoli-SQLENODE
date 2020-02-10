@@ -3,3 +3,30 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  form(method='POST' action='/unit')
+    div  
+      label(for='Unit') Unit:
+      br
+      input(type='text', placeholder='Unit name' name='Unit')
+    div  
+      label(for='Cost') Cost:
+      br
+      input(type='text', placeholder='xy' name='Cost')
+    div  
+      label(for='Speed') Speed:
+      br
+      input(type='text', placeholder='xy' name='Speed')
+    div  
+      label(for='Hit_Speed') Hit speed:
+      br
+      input(type='text', placeholder='xy' name='Hit_Speed')
+    div  
+      label(for='Deploy_time') Deploy time:
+      br
+      input(type='text', placeholder='xy' name='Deploy_time')
+    div  
+      label(for='Range') Range:
+      br
+      input(type='text', placeholder='xy' name='Range')
+
+    button(type='submit') Invia
