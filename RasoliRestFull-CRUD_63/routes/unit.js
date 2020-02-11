@@ -29,7 +29,6 @@ let executeQuery = function (res, query, next) {
       res.send(result.recordset); //Il vettore con i dati è nel campo recordset (puoi loggare result per verificare)
       sql.close();
     });
-
   });
 }
 
