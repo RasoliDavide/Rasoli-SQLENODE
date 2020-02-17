@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    each unita, index in data
+        div(style="border: 1px solid black")
+            img(src=`../../images/${unita.Unit}.png` style="height: 330px; width: 277px")
+            a(href=`/unit/search?id=${index}`)  #{unita.Unit}

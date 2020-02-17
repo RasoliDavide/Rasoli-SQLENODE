@@ -1,0 +1,49 @@
+extends layout
+
+block content
+    form(method='POST' action='/unit/add')
+        div  
+            label(for='Unit') Unit:
+            br
+            input(type='text', placeholder='Unit name' name='Unit')
+        div  
+            label(for='Cost') Cost:
+            br
+            input(type='text', placeholder='xy' name='Cost')
+        div  
+            label(for='Speed') Speed:
+            br
+            input(type='text', placeholder='xy' name='Speed')
+        div  
+            label(for='Hit_Speed') Hit speed:
+            br
+            input(type='text', placeholder='xy' name='Hit_Speed')
+        div  
+            label(for='Deploy_time') Deploy time:
+            br
+            input(type='text', placeholder='xy' name='Deploy_time')
+        div  
+            label(for='Range') Range:
+            br
+            input(type='text', placeholder='xy' name='Range')
+        div  
+            label(for='Target') Cost:
+            br
+            input(type='text', placeholder='xy' name='Target')
+        div  
+            label(for='Count') Speed:
+            br
+            input(type='text', placeholder='xy' name='Count')
+        div  
+            label(for='Transport') Hit speed:
+            br
+            input(type='text', placeholder='xy' name='Transport')
+        div  
+            label(for='Type') Deploy time:
+            br
+            input(type='text', placeholder='xy' name='Type')
+        div  
+            label(for='Rarity') Range:
+            br
+            input(type='text', placeholder='xy' name='Rarity')
+        button(type='submit') Invia

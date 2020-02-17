@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1 #{data.Unit}
+    p Costo: #{data.Cost} elisir
+    p Velocità d'attacco #{data.Hit_Speed}
+    p Velocità di movimento: #{data.Speed}
+    p Tempo di schieramento: #{data.Deploy_Time}
+    p Raggio: #{data.Range}
+    p Obiettivo: #{data.Target}
+    p Numero: #{data.Range}
+    p Trasport: #{data.Transport}
+    p Tipo: #{data.Type}
+    p Rarità: #{data.Rarity}
+    img(src=`../../images/${data.Unit}.png` style="width: 277px; height:330px")
