@@ -1,5 +1,6 @@
 extends layout
-
+block headblock
+    link(rel='stylesheet', href='/stylesheets/add.css')
 block content
     form(method='POST' action='/unit/add')
         div  
@@ -27,23 +28,23 @@ block content
             br
             input(type='text', placeholder='xy' name='Range')
         div  
-            label(for='Target') Cost:
+            label(for='Target') Target:
             br
             input(type='text', placeholder='xy' name='Target')
         div  
-            label(for='Count') Speed:
+            label(for='Count') Count:
             br
             input(type='text', placeholder='xy' name='Count')
         div  
-            label(for='Transport') Hit speed:
+            label(for='Transport') Transport:
             br
             input(type='text', placeholder='xy' name='Transport')
         div  
-            label(for='Type') Deploy time:
+            label(for='Type') Type:
             br
             input(type='text', placeholder='xy' name='Type')
         div  
-            label(for='Rarity') Range:
+            label(for='Rarity') Rarity:
             br
             input(type='text', placeholder='xy' name='Rarity')
         button(type='submit') Invia

@@ -46,30 +46,33 @@ let executeQuerySingle = function (res, ind, next, pageName) {
           return "err";
         }
         //sql.close();
-        console.log(result.recordset)
-        render(pageName, result.recordset[ind], res) //Il vettore con i dati è nel campo recordset (puoi loggare result per verificare)
+        console.log(result.recordset.length, ind)
+        if(ind == -1)
+           render(pageName, result.recordset[result.recordset.length-1],res )//Il vettore con i dati è nel campo recordset (puoi loggare result per verificare)
+        else
+          render(pageName, result.recordset[ind], res)
       });
     });
   }
   let executeQueryAdd = function (res, query, next) {
-  sql.connect(config, function (err) {
-    if (err) { //Display error page
-      console.log("Error while connecting database :- " + err);
-      res.status(500).json({success: false, message:'Error while connecting database', error:err});
-      return;
-    }
-    var request = new sql.Request(); // create Request object
-    request.query(query, function (err, result) { //Display error page
-      if (err) {
-        console.log("Error while querying database :- " + err);
-        res.status(500).json({success: false, message:'Error while querying database', error:err});
-        sql.close();
+    sql.connect(config, function (err) {
+      if (err) { //Display error page
+        console.log("Error while connecting database :- " + err);
+        res.status(500).json({success: false, message:'Error while connecting database', error:err});
         return;
       }
-      res.send(result.recordset); //Il vettore con i dati è nel campo recordset (puoi loggare result per verificare)
-      sql.close();
+      var request = new sql.Request(); // create Request object
+      request.query(query, function (err, result) { //Display error page
+        if (err) {
+          console.log("Error while querying database :- " + err);
+          res.status(500).json({success: false, message:'Error while querying database', error:err});
+          sql.close();
+          return;
+        }
+        sql.close();
+        executeQuerySingle(res, -1, next, "single_unit")
+      });
     });
-  });
 }
 let render = function(pageName, data, res)
 {
@@ -96,7 +99,6 @@ router.post('/add', function(req,res, next)
   }
   let sqlInsert = `INSERT INTO dbo.[cr-unit-attributes] (Unit,Cost,Speed, Hit_Speed, Deploy_Time, Range) 
                      VALUES ('${unit.Unit}','${unit.Cost}',' ${unit.Speed}','${unit.Hit_Speed}','${unit.Deploy_time}',' ${unit.Range}')`;
-  executeQuery(res, sqlInsert, next);
-  res.send({success:true, message: "unità inserita con successo", unit: unit})
+  executeQueryAdd(res, sqlInsert, next);
 })
 module.exports = router;

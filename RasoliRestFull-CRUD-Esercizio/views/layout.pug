@@ -3,5 +3,11 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    block headblock
   body
+    a.barra(href="/unit/add") 
+      h3.nav Aggiungi nuova unità
+    a.barra(href="/unit/all") 
+      h3.nav Vedi tutte le unità
+    br
     block content
